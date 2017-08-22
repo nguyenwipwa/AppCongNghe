@@ -1,0 +1,3 @@
+class Controller {
+    static goToList;
+}

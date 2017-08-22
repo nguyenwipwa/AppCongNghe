@@ -1,19 +1,33 @@
 import React, { Component } from 'react';
-import { Dimensions } from 'react-native';
-import { DrawerNavigator } from 'react-navigation';
+import { Dimensions, Text } from 'react-native';
+import { DrawerNavigator, StackNavigator } from 'react-navigation';
 import Home from './screens/Home';
 import Menu from './screens/Menu';
+import Search from './screens/Search';
 import Main from './Main';
+import ListProduct from './screens/ListProduct';
 
 
 const { width, height } = Dimensions.get("window");
-
-export const SliderMenu = DrawerNavigator({
-    Menu: {
+export const Home_Screens = StackNavigator({
+    ManHinh_Home: {
         screen: Main,
+        navigationOptions: {
+            header: null
+        }
+    },
+    ManHinh_List_Product: {
+        screen: ListProduct,
     }
 }, {
-        drawerWidth: width*0.7,
+        mode: 'modal',
+    });
+export const SliderMenu = DrawerNavigator({
+    Menu: {
+        screen: Home_Screens,
+    }
+}, {
+        drawerWidth: width * 0.7,
         drawerPosition: 'left',
         contentComponent: props => <Menu {...props}></Menu>
-    }); 
+    });

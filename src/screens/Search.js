@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
+import { Home_Screens } from '../Router';
 
 export default class Search extends Component {
-    state = {  }
     render() {
         return (
             <View>
-                <Text> Search </Text>
+                <Text>Search</Text>
             </View>
         )
     }

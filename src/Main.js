@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
 import TabNavigator from 'react-native-tab-navigator';
-import Home from './screens/Home';
+import HomeNavigator from './screens/HomeNavigator';
 import Contact from './screens/Contact';
 import Cart from './screens/Cart';
 import Search from './screens/Search';
-
 import Header from './component/Header';
 import { style_icon } from './styles/StylesAndroid';
-
+import Controller from './Controller/Controller';
 
 
 export default class Main extends Component {
@@ -18,6 +17,10 @@ export default class Main extends Component {
             selectedTab: 'home',
             carrArr: [],
         }
+        Controller.goToList = this.goToList.bind(this);
+    }
+    goToList() {
+        this.props.navigation.navigate('ManHinh_List_Product');
     }
     openMenu() {
         this.props.navigation.navigate('DrawerOpen');
@@ -35,7 +38,7 @@ export default class Main extends Component {
                             renderIcon={() => <Image style={style_icon.s_icon_tab} source={require('./images/appIcon/home0.png')} />}
                             renderSelectedIcon={() => <Image style={style_icon.s_icon_tab} source={require('./images/appIcon/home.png')} />}
                             onPress={() => this.setState({ selectedTab: 'home' })}>
-                            <Home />
+                            <HomeNavigator />
                         </TabNavigator.Item>
                         <TabNavigator.Item
                             selected={this.state.selectedTab === 'search'}

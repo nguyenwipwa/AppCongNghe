@@ -1,19 +1,29 @@
 import React, { Component } from 'react';
-import { View, Text, Image, ScrollView, TouchableOpacity, FlatList } from 'react-native';
+import { View, Text, Image, ScrollView, TouchableOpacity, FlatList, Modal, TouchableHighlight } from 'react-native';
 import Swiper from 'react-native-swiper'
 import Header from '../component/Header';
 import { style_image, style_home } from '../styles/StylesAndroid';
 import Product from '../component/Product';
 import Collection from '../component/Collection';
 import TabNavigator from 'react-native-tab-navigator';
+import Controller from '../Controller/Controller';
 
 
 export default class Home extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            modalVisible: false,
+        }
+    }
+    goToListProduct() {
+        this.props.navigator.push({ name: 'LIST_PRODUCT' })
     }
     openMenu() {
         this.props.navigation.navigate('DrawerOpen');
+    }
+    setModalVisible(visible) {
+        this.setState({ modalVisible: visible });
     }
     render() {
         const { s_image_slider } = style_image;
@@ -65,7 +75,30 @@ export default class Home extends Component {
                         <Collection title='Sản phẩm bán chạy' />
                         <Collection title='Sản phẩm khuyến mãi' />
                     </View>
+                    <TouchableHighlight onPress={this.goToListProduct.bind(this)}>
+                        <Text>Show Modal</Text>
+                    </TouchableHighlight>
                 </ScrollView>
+
+                <Modal
+                    animationType={"slide"}
+                    transparent={false}
+                    visible={this.state.modalVisible}
+                    onRequestClose={() => { alert("Modal has been closed.") }}
+                >
+                    <View style={{ marginTop: 22 }}>
+                        <View>
+                            <Text>Hello World!</Text>
+
+                            <TouchableHighlight onPress={() => {
+                                this.setModalVisible(!this.state.modalVisible)
+                            }}>
+                                <Text>Hide Modal</Text>
+                            </TouchableHighlight>
+                        </View>
+                    </View>
+                </Modal>
+
             </View>
         )
     }
