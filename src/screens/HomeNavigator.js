@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { Navigator } from 'react-native-deprecated-custom-components';
-import Home from '../screens/Home';
-import ListProduct from '../screens/ListProduct';
+import Home from './Home';
+import ListProduct from './ListProduct';
 
 
 export default class HomeNavigator extends Component {
+    constructor(props) {
+        super(props)
+    }
     render() {
         return (
             <Navigator

@@ -7,7 +7,7 @@ import Product from '../component/Product';
 import Collection from '../component/Collection';
 import TabNavigator from 'react-native-tab-navigator';
 import Controller from '../Controller/Controller';
-
+import MyValues from '../controller/MyValues';
 
 export default class Home extends Component {
     constructor(props) {
@@ -15,6 +15,7 @@ export default class Home extends Component {
         this.state = {
             modalVisible: false,
         }
+        MyValues.navigator = this.props.navigator;
     }
     goToListProduct() {
         this.props.navigator.push({ name: 'LIST_PRODUCT' })

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, FlatList, TouchableOpacity } from 'react-native';
 import Product from '../component/Product';
+import MyValues from '../controller/MyValues';
 
 
 export default class Collection extends Component {
@@ -20,7 +21,9 @@ export default class Collection extends Component {
                         {this.props.title}
                     </Text>
                     <TouchableOpacity>
-                        <Text style={{ color: 'green' }}>Xem thêm >></Text>
+                        <Text style={{ color: 'green' }} onPress={() => {
+                            MyValues.navigator.push({ name: 'LIST_PRODUCT' });
+                        }}>Xem thêm >></Text>
                     </TouchableOpacity>
                 </View>
                 <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
