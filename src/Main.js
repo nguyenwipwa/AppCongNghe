@@ -8,9 +8,10 @@ import Search from './screens/Search';
 import Header from './component/Header';
 import { style_icon } from './styles/StylesAndroid';
 import Controller from './Controller/Controller';
+import { connect } from 'react-redux';
 
 
-export default class Main extends Component {
+class Main extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -71,3 +72,10 @@ export default class Main extends Component {
         )
     }
 }
+function mapStateToProps(state) {
+    return {
+        name: state.name,
+    };
+}
+
+export default connect(mapStateToProps)(Main);
