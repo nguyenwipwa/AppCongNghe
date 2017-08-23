@@ -6,14 +6,14 @@ import { style_image, style_home } from '../styles/StylesAndroid';
 import Product from '../component/Product';
 import Collection from '../component/Collection';
 import TabNavigator from 'react-native-tab-navigator';
-import Controller from '../Controller/Controller';
+import Controller from '../controller/Controller';
 import MyValues from '../controller/MyValues';
 
-export default class Home extends Component {
+class Home extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            modalVisible: false,
+            modalVisible: this.props.isVisibleProfile,
         }
         MyValues.navigator = this.props.navigator;
     }
@@ -76,25 +76,25 @@ export default class Home extends Component {
                         <Collection title='Sản phẩm bán chạy' />
                         <Collection title='Sản phẩm khuyến mãi' />
                     </View>
-                    <TouchableHighlight onPress={this.goToListProduct.bind(this)}>
-                        <Text>Show Modal</Text>
-                    </TouchableHighlight>
                 </ScrollView>
 
                 <Modal
                     animationType={"slide"}
                     transparent={false}
-                    visible={this.state.modalVisible}
-                    onRequestClose={() => { alert("Modal has been closed.") }}
+                    visible={this.props.isVisibleProfile}
+                    onRequestClose={() => {
+                        {/* alert("Modal has been closed."); */ }
+                        this.props.dispatch({ type: 'TOOGLE_PROFILE' })
+                    }}
                 >
                     <View style={{ marginTop: 22 }}>
                         <View>
-                            <Text>Hello World!</Text>
+                            <Text>Profile</Text>
 
                             <TouchableHighlight onPress={() => {
-                                this.setModalVisible(!this.state.modalVisible)
+                                this.props.dispatch({ type: 'TOOGLE_PROFILE' })
                             }}>
-                                <Text>Hide Modal</Text>
+                                <Text>Quay lai</Text>
                             </TouchableHighlight>
                         </View>
                     </View>
@@ -104,3 +104,12 @@ export default class Home extends Component {
         )
     }
 }
+import { connect } from 'react-redux';
+
+function mapStateToProps(state) {
+    return {
+        isVisibleProfile: state.isVisibleProfile,
+    }
+}
+
+export default connect(mapStateToProps)(Home);

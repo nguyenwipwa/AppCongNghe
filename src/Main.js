@@ -7,7 +7,7 @@ import Cart from './screens/Cart';
 import Search from './screens/Search';
 import Header from './component/Header';
 import { style_icon } from './styles/StylesAndroid';
-import Controller from './Controller/Controller';
+import Controller from './controller/Controller';
 import { connect } from 'react-redux';
 
 
