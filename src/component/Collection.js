@@ -3,7 +3,6 @@ import { View, Text, FlatList, TouchableOpacity } from 'react-native';
 import Product from '../component/Product';
 import MyValues from '../controller/MyValues';
 
-
 export default class Collection extends Component {
     constructor(props) {
         super(props);

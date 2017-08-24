@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
-import { Dimensions, Text } from 'react-native';
+import { Dimensions, Text, StyleSheet } from 'react-native';
 import { DrawerNavigator, StackNavigator } from 'react-navigation';
 import Home from './screens/Home';
 import Menu from './screens/Menu';
 import Search from './screens/Search';
+import Category from './screens/Category';
+import DetailProduct from './screens/DetailProduct';
+
 import Main from './Main';
 import ListProduct from './screens/ListProduct';
 
@@ -16,8 +19,41 @@ export const Home_Screens = StackNavigator({
             header: null
         }
     },
+    ManHinh_Detail_Product: {
+        screen: DetailProduct,
+        navigationOptions: ({ navigation }) => ({
+            title: navigation.state.params.product,
+            headerStyle: {
+                backgroundColor: 'red',
+            },
+            headerTitleStyle: {
+                color: 'white',
+            },
+            headerBackTitleStyle: {
+                color: 'white',
+            },
+            headerTintColor: 'white',
+        }),
+
+    },
     ManHinh_List_Product: {
         screen: ListProduct,
+    },
+    ManHinh_DanhMuc: {
+        screen: Category,
+        navigationOptions: ({ navigation }) => ({
+            title: 'Tất cả danh mục',
+            headerStyle: {
+                backgroundColor: 'red',
+            },
+            headerTitleStyle: {
+                color: 'white',
+            },
+            headerBackTitleStyle: {
+                color: 'white',
+            },
+            headerTintColor: 'white',
+        }),
     }
 }, {
         mode: 'modal',

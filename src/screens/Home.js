@@ -47,7 +47,9 @@ class Home extends Component {
                     <View
                         style={s_menu_home}
                     >
-                        <TouchableOpacity>
+                        <TouchableOpacity
+                            onPress={() => Controller.goToScreen({ router: 'DANH_MUC' })}
+                        >
                             <View style={{ justifyContent: 'center', alignItems: 'center' }}>
                                 <Image source={require('../images/appIcon/home.png')} />
                                 <Text style={{ fontWeight: 'bold' }}>Danh mục</Text>
@@ -100,7 +102,7 @@ class Home extends Component {
                     </View>
                 </Modal>
 
-            </View>
+            </View >
         )
     }
 }

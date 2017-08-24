@@ -19,6 +19,14 @@ class Main extends Component {
             carrArr: [],
         }
         Controller.goToList = this.goToList.bind(this);
+        Controller.goToScreen = this.goToScreen.bind(this);
+    }
+    goToScreen(screen) {
+        switch (screen.router) {
+            case 'DANH_MUC': return this.props.navigation.navigate('ManHinh_DanhMuc');
+            case 'DETAIL_PRODUCT': return this.props.navigation.navigate('ManHinh_Detail_Product', { product: screen.product });
+            default: return;
+        }
     }
     goToList() {
         this.props.navigation.navigate('ManHinh_List_Product');
