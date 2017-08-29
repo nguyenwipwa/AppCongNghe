@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, Image, ScrollView, TouchableOpacity, FlatList, Modal, TouchableHighlight } from 'react-native';
-import Swiper from 'react-native-swiper'
+import Swiper from 'react-native-swiper';
 import Header from '../component/Header';
 import { style_image, style_home } from '../styles/StylesAndroid';
 import Product from '../component/Product';
@@ -8,17 +8,19 @@ import Collection from '../component/Collection';
 import TabNavigator from 'react-native-tab-navigator';
 import Controller from '../controller/Controller';
 import MyValues from '../controller/MyValues';
+import Profile from '../component/Profile';
+
 
 class Home extends Component {
     constructor(props) {
         super(props);
         this.state = {
             modalVisible: this.props.isVisibleProfile,
-        }
+        };
         MyValues.navigator = this.props.navigator;
     }
     goToListProduct() {
-        this.props.navigator.push({ name: 'LIST_PRODUCT' })
+        this.props.navigator.push({ name: 'LIST_PRODUCT' });
     }
     openMenu() {
         this.props.navigation.navigate('DrawerOpen');
@@ -58,19 +60,19 @@ class Home extends Component {
                         <TouchableOpacity>
                             <View style={{ justifyContent: 'center', alignItems: 'center' }}>
                                 <Image source={require('../images/appIcon/home.png')} />
-                                <Text style={{ fontWeight: 'bold' }}>Danh mục</Text>
+                                <Text style={{ fontWeight: 'bold' }}>Khuyến mãi</Text>
                             </View>
                         </TouchableOpacity>
                         <TouchableOpacity>
                             <View style={{ justifyContent: 'center', alignItems: 'center' }}>
                                 <Image source={require('../images/appIcon/home.png')} />
-                                <Text style={{ fontWeight: 'bold' }}>Danh mục</Text>
+                                <Text style={{ fontWeight: 'bold' }}>Bán chạy</Text>
                             </View>
                         </TouchableOpacity>
                         <TouchableOpacity>
                             <View style={{ justifyContent: 'center', alignItems: 'center' }}>
                                 <Image source={require('../images/appIcon/home.png')} />
-                                <Text style={{ fontWeight: 'bold' }}>Danh mục</Text>
+                                <Text style={{ fontWeight: 'bold' }}>Sản phẩm mới</Text>
                             </View>
                         </TouchableOpacity>
                     </View>
@@ -81,29 +83,30 @@ class Home extends Component {
                 </ScrollView>
 
                 <Modal
-                    animationType={"slide"}
+                    animationType={'slide'}
                     transparent={false}
                     visible={this.props.isVisibleProfile}
                     onRequestClose={() => {
                         {/* alert("Modal has been closed."); */ }
-                        this.props.dispatch({ type: 'TOOGLE_PROFILE' })
+                        this.props.dispatch({ type: 'TOOGLE_PROFILE' });
                     }}
                 >
                     <View style={{ marginTop: 22 }}>
-                        <View>
+                        <Profile />
+                        {/* <View>
                             <Text>Profile</Text>
 
                             <TouchableHighlight onPress={() => {
-                                this.props.dispatch({ type: 'TOOGLE_PROFILE' })
+                                this.props.dispatch({ type: 'TOOGLE_PROFILE' });
                             }}>
                                 <Text>Quay lai</Text>
                             </TouchableHighlight>
-                        </View>
+                        </View> */}
                     </View>
                 </Modal>
 
             </View >
-        )
+        );
     }
 }
 import { connect } from 'react-redux';
@@ -111,7 +114,7 @@ import { connect } from 'react-redux';
 function mapStateToProps(state) {
     return {
         isVisibleProfile: state.isVisibleProfile,
-    }
+    };
 }
 
 export default connect(mapStateToProps)(Home);

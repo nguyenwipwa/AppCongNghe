@@ -16,36 +16,42 @@ export const style_header = StyleSheet.create({
     },
     s_viewHeader: {
         backgroundColor: 'red',
-        flex: 1,
+        //flex: 1,
+        height: 50,
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
         paddingHorizontal: 5
     }
 
-})
+});
 export const style_home = StyleSheet.create({
     s_menu_home: {
-        width: "100%",
+        width: '100%',
         height: 80,
-        backgroundColor: "white",
+        backgroundColor: 'white',
         flexDirection: 'row',
         justifyContent: 'space-between',
-        padding: 8,
-        borderBottomWidth: 1,
+        padding: 6,
+        borderBottomWidth: 2,
+        borderColor: '#dddddd'
     },
 
-})
+});
 export const style_icon = StyleSheet.create({
     s_icon_tab: {
         width: 26,
         height: 26,
     }
-})
+});
 export const style_image = StyleSheet.create({
     s_image_slider: {
-        width: "100%",
+        width: '100%',
         height: 150,
+    },
+    s_image_logo: {
+        width: '100%',
+        height: '100%'
     }
 });
 

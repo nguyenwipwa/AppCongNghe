@@ -8,6 +8,6 @@ export default class Search extends Component {
             <View>
                 <Text>Search</Text>
             </View>
-        )
+        );
     }
 }

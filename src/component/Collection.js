@@ -8,7 +8,7 @@ export default class Collection extends Component {
         super(props);
         this.state = {
             dataProduct: [{ key: 1, name: 'trong', img: 'hinh1.jpg' }, { key: 2, name: 'trong', img: 'hinh2.jpg' }, { key: 3, name: 'trong', img: 'hinh3.jpg' }, { key: 4, name: 'trong', img: 'hinh1.jpg' }],
-        }
+        };
     }
     render() {
         return (
@@ -35,6 +35,6 @@ export default class Collection extends Component {
                 </View>
                 <View style={{ borderBottomWidth: 3, borderColor: '#dddddd' }} />
             </View>
-        )
+        );
     }
 }

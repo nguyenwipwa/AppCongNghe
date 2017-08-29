@@ -17,15 +17,15 @@ class Main extends Component {
         this.state = {
             selectedTab: 'home',
             carrArr: [],
-        }
+        };
         Controller.goToList = this.goToList.bind(this);
         Controller.goToScreen = this.goToScreen.bind(this);
     }
     goToScreen(screen) {
         switch (screen.router) {
-            case 'DANH_MUC': return this.props.navigation.navigate('ManHinh_DanhMuc');
-            case 'DETAIL_PRODUCT': return this.props.navigation.navigate('ManHinh_Detail_Product', { product: screen.product });
-            default: return;
+        case 'DANH_MUC': return this.props.navigation.navigate('ManHinh_DanhMuc');
+        case 'DETAIL_PRODUCT': return this.props.navigation.navigate('ManHinh_Detail_Product', { product: screen.product });
+        default: return;
         }
     }
     goToList() {
@@ -77,7 +77,7 @@ class Main extends Component {
                     </TabNavigator>
                 </View>
             </View>
-        )
+        );
     }
 }
 function mapStateToProps(state) {
