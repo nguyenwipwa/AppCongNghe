@@ -3,7 +3,7 @@ import { StyleSheet, Dimensions } from 'react-native';
 const { height } = Dimensions.get('window');
 
 export const style_header = StyleSheet.create({
-    icon: { width: 40, height: 40 },
+    icon: { width: 30, height: 30 },
     s_textInput: {
         flex: 1,
         backgroundColor: 'white',

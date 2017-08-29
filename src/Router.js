@@ -63,7 +63,7 @@ export const SliderMenu = DrawerNavigator({
         screen: Home_Screens,
     }
 }, {
-        drawerWidth: width * 0.7,
+        drawerWidth: width * 0.8,
         drawerPosition: 'left',
         contentComponent: props => <Menu {...props}></Menu>
     });

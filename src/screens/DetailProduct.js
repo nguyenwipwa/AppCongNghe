@@ -11,6 +11,7 @@ class DetailProduct extends Component {
         super(props);
         this.state = {
             html: '',
+            isLoading: true,
         }
     }
     componentDidMount = () => {
@@ -32,6 +33,8 @@ class DetailProduct extends Component {
     //             .catch(() => dispatch(fetchError()));
     //     }
     // }
+    isLoading() {
+    }
     getMessage = () => {
         if (this.props.isLoading) return 'Đang tải...';
         if (this.props.error) return 'Loi';
