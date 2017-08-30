@@ -91,18 +91,9 @@ class Home extends Component {
                         this.props.dispatch({ type: 'TOOGLE_PROFILE' });
                     }}
                 >
-                    <View style={{ marginTop: 22 }}>
-                        <Profile />
-                        {/* <View>
-                            <Text>Profile</Text>
-
-                            <TouchableHighlight onPress={() => {
-                                this.props.dispatch({ type: 'TOOGLE_PROFILE' });
-                            }}>
-                                <Text>Quay lai</Text>
-                            </TouchableHighlight>
-                        </View> */}
-                    </View>
+                    <Profile onPress={() => {
+                        this.props.dispatch({ type: 'TOOGLE_PROFILE' });
+                    }} />
                 </Modal>
 
             </View >

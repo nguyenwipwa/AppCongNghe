@@ -4,7 +4,7 @@ import thunk from 'redux-thunk';
 
 const defaultState = {
     name: 'trong Nguyen',
-    isVisibleProfile: true,
+    isVisibleProfile: false,
     isLoading: false,
     error: false,
     data: null,

@@ -25,6 +25,63 @@ export const style_header = StyleSheet.create({
     }
 
 });
+export const styleTxt = StyleSheet.create({
+    txtPrice: {
+        color: '#f12b24',
+        fontWeight: 'bold'
+    },
+    txtShow: {
+        color: '#fe00a6',
+        fontSize: 10,
+        marginTop: 5,
+
+    },
+    txtWhite: {
+        color: 'white'
+    },
+    txtBold: {
+        fontWeight: 'bold'
+    },
+    txtContact: {
+        color: '#fe0191',
+    }
+});
+export const styleContact = StyleSheet.create({
+    viewImage: {
+        flex: 6,
+        marginBottom: 10,
+        backgroundColor: 'red'
+    },
+    viewInfo: {
+        flex: 5,
+        backgroundColor: 'white',
+        borderRadius: 5,
+        paddingHorizontal: 5
+    },
+    imageStyle: {
+        width: '100%',
+        height: '100%',
+        borderRadius: 5,
+    },
+    containerGray: {
+        backgroundColor: '#f1f1f1',
+        flex: 1,
+        padding: 5,
+    },
+    rowSpaceBetween: {
+        justifyContent: 'space-between',
+        flexDirection: 'row',
+        flex: 1,
+        borderColor: '#f1f1f1',
+        borderBottomWidth: 3,
+        margin: 5,
+        alignItems: 'center'
+    },
+    iconStyle: {
+        width: '10%',
+        height: '80%',
+    }
+});
 export const style_home = StyleSheet.create({
     s_menu_home: {
         width: '100%',
