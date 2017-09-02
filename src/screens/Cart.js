@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { View, Text, FlatList, TouchableOpacity } from 'react-native';
 import ItemCart from '../component/ItemCart';
 import { connect } from 'react-redux';
-
-
 class Cart extends Component {
     constructor(props) {
         super(props);
