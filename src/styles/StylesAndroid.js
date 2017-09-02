@@ -104,7 +104,7 @@ export const style_icon = StyleSheet.create({
 export const style_image = StyleSheet.create({
     s_image_slider: {
         width: '100%',
-        height: 150,
+        height: 110,
     },
     s_image_logo: {
         width: '100%',

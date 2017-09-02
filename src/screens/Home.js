@@ -32,18 +32,20 @@ class Home extends Component {
         const { s_image_slider } = style_image;
         const { s_menu_home } = style_home;
         return (
-            <View style={{ paddingHorizontal: 3 }}>
+            <View style={{ }}>
                 <ScrollView style={{ backgroundColor: '#dddddd' }}>
                     <View>
                         <Swiper
                             autoplay
                             autoplayTimeout={2.5}
                             width="100%"
-                            height={150}
+                            height={110}
                         >
-                            <Image style={s_image_slider} source={require('../images/temp/maxi.jpg')} />
-                            <Image style={s_image_slider} source={require('../images/temp/midi.jpg')} />
-                            <Image style={s_image_slider} source={require('../images/temp/mini.jpg')} />
+                            <Image style={s_image_slider} source={require('../images/slide/s1.jpg')} />
+                            <Image style={s_image_slider} source={require('../images/slide/s2.jpg')} />
+                            <Image style={s_image_slider} source={require('../images/slide/s3.jpg')} />
+                            <Image style={s_image_slider} source={require('../images/slide/s4.jpg')} />
+                            <Image style={s_image_slider} source={require('../images/slide/s5.jpg')} />
                         </Swiper>
                     </View>
                     <View
