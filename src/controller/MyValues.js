@@ -1,3 +1,3 @@
-class Value {
+export default class Value {
     static navigator = null;
 }

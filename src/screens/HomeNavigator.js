@@ -7,7 +7,7 @@ import ListProduct from './ListProduct';
 
 export default class HomeNavigator extends Component {
     constructor(props) {
-        super(props)
+        super(props);
     }
     render() {
         return (
@@ -15,9 +15,9 @@ export default class HomeNavigator extends Component {
                 initialRoute={{ name: 'HOME' }}
                 renderScene={(route, navigator) => {
                     switch (route.name) {
-                        case 'HOME': return <Home navigator={navigator} />
-                        case 'LIST_PRODUCT': return <ListProduct navigator={navigator} />
-                        default: return <Home />
+                    case 'HOME': return <Home navigator={navigator} />;
+                    case 'LIST_PRODUCT': return <ListProduct navigator={navigator} title={route.title} />;
+                    default: return <Home />;
                     }
                 }}
                 configureScene={
@@ -29,6 +29,6 @@ export default class HomeNavigator extends Component {
                     }
                 }
             />
-        )
+        );
     }
 }
