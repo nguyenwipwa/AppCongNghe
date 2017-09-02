@@ -76,7 +76,7 @@ class Home extends Component {
                             </View>
                         </TouchableOpacity>
                     </View>
-                    <View style={{ marginTop: 3, backgroundColor: 'white' }}>
+                    <View style={{ marginTop: 3, backgroundColor: 'white', justifyContent: 'center' }}>
                         <Collection title='Sản phẩm bán chạy' />
                         <Collection title='Sản phẩm khuyến mãi' />
                     </View>

@@ -39,7 +39,7 @@ class Main extends Component {
         return (
             <View style={{ flex: 1, }} >
                 <Header openMenu={this.openMenu.bind(this)} />
-                <View style={{ backgroundColor: '#dddddd', flex: 10 }}>
+                <View style={{ backgroundColor: 'white', flex: 10 }}>
                     <TabNavigator>
                         <TabNavigator.Item
                             selected={this.state.selectedTab === 'home'}

@@ -25,7 +25,7 @@ export default class Collection extends Component {
                         }}>Xem thêm >></Text>
                     </TouchableOpacity>
                 </View>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
+                <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
                     <FlatList
                         initialNumToRender={2}
                         numColumns={2}
