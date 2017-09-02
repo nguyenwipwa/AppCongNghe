@@ -109,6 +109,15 @@ export const style_image = StyleSheet.create({
     s_image_logo: {
         width: '100%',
         height: '100%'
+    },
+    s_image_product: {
+        width: '100%',
+        height: 110
+    },
+    s_image_cart: {
+        width: '50%',
+        height: 110
     }
+
 });
 

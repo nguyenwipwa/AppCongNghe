@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
 import Controller from '../controller/Controller';
+import {style_image} from '../styles/StylesAndroid';
+
 
 export default class Product extends Component {
     render() {
@@ -13,7 +15,7 @@ export default class Product extends Component {
                 }}
             >
                 <Image
-                    style={{ width: '100%', height: 110 }}
+                    style={style_image.s_image_product}
                     source={img} />
                 <View style={{ alignSelf: 'center' }}>
                     <Text>
