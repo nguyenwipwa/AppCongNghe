@@ -68,7 +68,7 @@ export const SliderMenu = DrawerNavigator({
     contentComponent: props => <Menu {...props}></Menu>
 });
 const AppWithNavigationState = ({ dispatch, nav }) => (
-    <SliderMenu navigation={addNavigationHelpers({ dispatch, state: nav })} />
+    <SliderMenu navigation1={addNavigationHelpers({ dispatch, state: nav })} />
 );
   
 
