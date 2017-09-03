@@ -1,28 +1,62 @@
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
+import { SliderMenu } from '../Router';
 
+const initialState = SliderMenu.router.getStateForAction(SliderMenu.router.getActionForPathAndParams('ManHinh_DanhMuc'));
 
-const defaultState = {
-    name: 'trong Nguyen',
-    isVisibleProfile: false,
-    isLoading: false,
-    error: false,
-    data: null,
-    cartArr: [{ key: 1, name: 'Camera IP hồng ngoại không dây VANTECH VT-6300B', img: 'hinh1.jpg' },
-        { key: 2, name: 'Camera IP hồng ngoại không dây VANTECH VT-6300B', img: 'hinh2.jpg' },
-        { key: 3, name: 'Đầu ghi hình HD-TVI 4 kênh TURBO 3.0 HIKVISION DS-7204HGHI-F1C', img: 'hinh3.jpg' },
-        { key: 4, name: 'Camera IP hồng ngoại không dây 2.0 Megapixel HIKVISION DS-2CD2420F-IW', img: 'hinh1.jpg' }
-    ]
+const navReducer = (state = initialState, action) => {
+    const nextState = SliderMenu.router.getStateForAction(action, state);
+  
+    // Simply return the original `state` if `nextState` is null or undefined.
+    return nextState || state;
 };
-const reducer = (state = defaultState, action) => {
+
+const isLoading= false, error= false,data= null, isVisibleProfile=false;
+const cartArr= [{ key: 1, name: 'Camera IP hồng ngoại không dây VANTECH VT-6300B', img: 'hinh1.jpg' },
+    { key: 2, name: 'Camera IP hồng ngoại không dây VANTECH VT-6300B', img: 'hinh2.jpg' },
+    { key: 3, name: 'Đầu ghi hình HD-TVI 4 kênh TURBO 3.0 HIKVISION DS-7204HGHI-F1C', img: 'hinh3.jpg' },
+    { key: 4, name: 'Camera IP hồng ngoại không dây 2.0 Megapixel HIKVISION DS-2CD2420F-IW', img: 'hinh1.jpg' }
+];
+
+const redcerCarr = (state = cartArr, action) => {
+    return state;
+};
+const visibleProfile = (state = isVisibleProfile, action) => {
+    switch(action.type){
+    case 'TOOGLE_PROFILE': return !state;
+    default: return state;
+    }
+};
+const loading = (state = isLoading, action) => {
     switch (action.type) {
-    case 'TOOGLE_PROFILE': return { ...state, isVisibleProfile: !state.isVisibleProfile };
-    case 'FETCH_START': return { ...state, isLoading: true, error: false };
-    case 'FETCH_SUCCESS': return { ...state, isLoading: false, error: false, data: action.data };
-    case 'FETCH_ERROR': return { ...state, isLoading: false, error: true };
+    case 'FETCH_START': return true;
+    case 'FETCH_SUCCESS': return false;
+    case 'FETCH_ERROR': return false;
+    default: return state;
+    }
+};
+const isError = (state = error, action) => {
+    switch (action.type) {
+    case 'FETCH_START': return false;
+    case 'FETCH_SUCCESS': return false;
+    case 'FETCH_ERROR': return true;
+    default: return state;
+    }
+};
+const isData = (state = data, action) => {
+    switch (action.type) {
+    case 'FETCH_SUCCESS': return action.data;
     default: return state;
     }
 };
 
-const store = createStore(reducer, applyMiddleware(thunk));
+const appReducer = combineReducers({
+    nav: navReducer,
+    isVisibleProfile: visibleProfile,
+    isLoading: loading,
+    error: isError,
+    data: isData,
+    cartArr: redcerCarr
+});
+const store = createStore(appReducer, applyMiddleware(thunk));
 export default store;

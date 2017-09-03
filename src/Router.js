@@ -11,7 +11,7 @@ import Main from './Main';
 import ListProduct from './screens/ListProduct';
 
 
-const { width, height } = Dimensions.get("window");
+const { width, height } = Dimensions.get('window');
 export const Home_Screens = StackNavigator({
     ManHinh_Home: {
         screen: Main,
@@ -56,14 +56,14 @@ export const Home_Screens = StackNavigator({
         }),
     }
 }, {
-        mode: 'modal',
-    });
+    mode: 'modal',
+});
 export const SliderMenu = DrawerNavigator({
     Menu: {
         screen: Home_Screens,
     }
 }, {
-        drawerWidth: width * 0.8,
-        drawerPosition: 'left',
-        contentComponent: props => <Menu {...props}></Menu>
-    });
+    drawerWidth: width * 0.8,
+    drawerPosition: 'left',
+    contentComponent: props => <Menu {...props}></Menu>
+});

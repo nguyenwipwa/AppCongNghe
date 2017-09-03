@@ -9,6 +9,7 @@ import TabNavigator from 'react-native-tab-navigator';
 import Controller from '../controller/Controller';
 import MyValues from '../controller/MyValues';
 import Profile from '../component/Profile';
+import { NavigationActions } from 'react-navigation';
 
 
 class Home extends Component {
@@ -31,8 +32,15 @@ class Home extends Component {
     render() {
         const { s_image_slider } = style_image;
         const { s_menu_home } = style_home;
+        const navigateAction = NavigationActions.navigate({
+            routeName: 'DANH_MUC',
+            params: {},
+
+            // navigate can have a nested navigate action that will be run inside the child router
+            action: NavigationActions.navigate({ routeName:  'DANH_MUC' })
+        });
         return (
-            <View style={{ }}>
+            <View style={{}}>
                 <ScrollView style={{ backgroundColor: '#dddddd' }}>
                     <View>
                         <Swiper
@@ -52,7 +60,7 @@ class Home extends Component {
                         style={s_menu_home}
                     >
                         <TouchableOpacity
-                            onPress={() => Controller.goToScreen({ router: 'DANH_MUC' })}
+                            onPress={() => this.props.navigation.dispatch(navigateAction)}
                         >
                             <View style={{ justifyContent: 'center', alignItems: 'center' }}>
                                 <Image source={require('../images/appIcon/home.png')} />
