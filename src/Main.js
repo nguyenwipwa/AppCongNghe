@@ -9,6 +9,7 @@ import Header from './component/Header';
 import { style_icon } from './styles/StylesAndroid';
 import Controller from './controller/Controller';
 import { connect } from 'react-redux';
+import { addNavigationHelpers } from 'react-navigation';
 
 
 class Main extends Component {
@@ -47,7 +48,10 @@ class Main extends Component {
                             renderIcon={() => <Image style={style_icon.s_icon_tab} source={require('./images/appIcon/home0.png')} />}
                             renderSelectedIcon={() => <Image style={style_icon.s_icon_tab} source={require('./images/appIcon/home.png')} />}
                             onPress={() => this.setState({ selectedTab: 'home' })}>
-                            <HomeNavigator />
+                            <HomeNavigator navigation={addNavigationHelpers({
+                                dispatch: this.props.dispatch,
+                                state: this.props.nav,
+                            })} />
                         </TabNavigator.Item>
                         <TabNavigator.Item
                             selected={this.state.selectedTab === 'search'}
@@ -83,6 +87,7 @@ class Main extends Component {
 function mapStateToProps(state) {
     return {
         name: state.name,
+        nav: state.nav
     };
 }
 

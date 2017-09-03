@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { Dimensions, Text, StyleSheet } from 'react-native';
-import { DrawerNavigator, StackNavigator } from 'react-navigation';
+import { DrawerNavigator, StackNavigator, addNavigationHelpers } from 'react-navigation';
 import Home from './screens/Home';
 import Menu from './screens/Menu';
 import Search from './screens/Search';
 import Category from './screens/Category';
 import DetailProduct from './screens/DetailProduct';
-
+import { connect } from 'react-redux';
 import Main from './Main';
 import ListProduct from './screens/ListProduct';
 
@@ -67,3 +67,13 @@ export const SliderMenu = DrawerNavigator({
     drawerPosition: 'left',
     contentComponent: props => <Menu {...props}></Menu>
 });
+const AppWithNavigationState = ({ dispatch, nav }) => (
+    <SliderMenu navigation={addNavigationHelpers({ dispatch, state: nav })} />
+);
+  
+
+const mapStateToProps = state => ({
+    nav: state.nav,
+});
+  
+export default connect(mapStateToProps)(AppWithNavigationState);
