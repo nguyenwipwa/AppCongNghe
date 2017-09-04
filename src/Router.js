@@ -3,6 +3,7 @@ import { Dimensions, Text, StyleSheet } from 'react-native';
 import { DrawerNavigator, StackNavigator, addNavigationHelpers } from 'react-navigation';
 import Home from './screens/Home';
 import Menu from './screens/Menu';
+import Profile from './component/Profile';
 import Search from './screens/Search';
 import Category from './screens/Category';
 import DetailProduct from './screens/DetailProduct';
@@ -18,6 +19,22 @@ export const Home_Screens = StackNavigator({
         navigationOptions: {
             header: null
         }
+    },
+    ManHinh_Profile: {
+        screen: Profile,
+        navigationOptions: {
+            title: 'Thông tin',
+            headerStyle: {
+                backgroundColor: 'red',
+            },
+            headerTitleStyle: {
+                color: 'white',
+            },
+            headerBackTitleStyle: {
+                color: 'white',
+            },
+            headerTintColor: 'white',
+        },
     },
     ManHinh_Detail_Product: {
         screen: DetailProduct,
@@ -56,24 +73,24 @@ export const Home_Screens = StackNavigator({
         }),
     }
 }, {
-    mode: 'modal',
-});
+        mode: 'modal',
+    });
 export const SliderMenu = DrawerNavigator({
     Menu: {
         screen: Home_Screens,
     }
 }, {
-    drawerWidth: width * 0.8,
-    drawerPosition: 'left',
-    contentComponent: props => <Menu {...props}></Menu>
-});
+        drawerWidth: width * 0.8,
+        drawerPosition: 'left',
+        contentComponent: props => <Menu {...props}></Menu>
+    });
 const AppWithNavigationState = ({ dispatch, nav }) => (
     <SliderMenu navigation1={addNavigationHelpers({ dispatch, state: nav })} />
 );
-  
+
 
 const mapStateToProps = state => ({
     nav: state.nav,
 });
-  
+
 export default connect(mapStateToProps)(AppWithNavigationState);

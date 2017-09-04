@@ -11,7 +11,7 @@ export default class Profile extends Component {
         const { icon } = style_header;
         return (
             <View style={{ flex: 1 }}>
-                <View
+                {/* <View
                     style={{
                         backgroundColor: 'red',
                         height: 50,
@@ -22,7 +22,7 @@ export default class Profile extends Component {
                     <TouchableOpacity style={{ marginLeft: 8 }} onPress={this.props.onPress}>
                         <Image style={icon} source={require('../images/appIcon/delete.png')} />
                     </TouchableOpacity>
-                </View>
+                </View> */}
                 <ScrollView style={{ backgroundColor: '#dddddd', flex: 1, padding: 8 }}>
                     <View
                         style={{

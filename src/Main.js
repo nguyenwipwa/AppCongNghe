@@ -26,6 +26,7 @@ class Main extends Component {
         switch (screen.router) {
         case 'DANH_MUC': return this.props.navigation.navigate('ManHinh_DanhMuc');
         case 'DETAIL_PRODUCT': return this.props.navigation.navigate('ManHinh_Detail_Product', { product: screen.product });
+        case 'PROFILE': return this.props.navigation.navigate('ManHinh_Profile');
         default: return;
         }
     }
