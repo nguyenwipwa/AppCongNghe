@@ -4,20 +4,11 @@ import { Home_Screens } from '../Router';
 import Product from '../component/Product';
 
 
-export default class Search extends Component {
+class Search extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            dataProduct: [
-                { key: 1, name: 'trong', img: 'hinh1.jpg' },
-                { key: 2, name: 'trong', img: 'hinh2.jpg' },
-                { key: 3, name: 'trong', img: 'hinh3.jpg' },
-                { key: 5, name: 'trong', img: 'hinh1.jpg' },
-                { key: 6, name: 'trong', img: 'hinh1.jpg' },
-                { key: 7, name: 'trong', img: 'hinh1.jpg' },
-                { key: 8, name: 'trong', img: 'hinh1.jpg' },
-                { key: 9, name: 'trong', img: 'hinh1.jpg' }
-            ],
+            dataProduct: this.props.cartArr,
         };
     }
     render() {
@@ -29,7 +20,7 @@ export default class Search extends Component {
                     <Text style={{justifyContent:'center', textAlign: 'center', width: '30%'}}> Đánh giá tốt ^</Text>
                 </View>
                 <FlatList
-                    onEndReached={(number) => alert(number)}
+                    //onEndReached={(number) => alert(number)}
                     onEndReachedThreshold={0.1}
                     onRefresh={() => alert('ngon')}
                     refreshing={false}
@@ -42,3 +33,10 @@ export default class Search extends Component {
         );
     }
 }
+import { connect } from 'react-redux';
+
+function mapStateToProps(state) {
+    return { cartArr: state.cartArr };
+}
+
+export default connect(mapStateToProps)(Search);

@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import { View, Text, Image, ScrollView, TouchableOpacity, FlatList, Modal, TouchableHighlight } from 'react-native';
 import Swiper from 'react-native-swiper';
 import Header from '../component/Header';
-import { style_image, style_home } from '../styles/StylesAndroid';
+import { style_image, style_home, style_icon } from '../styles/StylesAndroid';
 import Product from '../component/Product';
 import Collection from '../component/Collection';
 import TabNavigator from 'react-native-tab-navigator';
 import Controller from '../controller/Controller';
 import MyValues from '../controller/MyValues';
 import Profile from '../component/Profile';
+import ButtonHome from '../component/ButtonHome';
 
 
 class Home extends Component {
@@ -32,7 +33,7 @@ class Home extends Component {
         const { s_image_slider } = style_image;
         const { s_menu_home } = style_home;
         return (
-            <View style={{ }}>
+            <View style={{}}>
                 <ScrollView style={{ backgroundColor: '#dddddd' }}>
                     <View>
                         <Swiper
@@ -51,32 +52,10 @@ class Home extends Component {
                     <View
                         style={s_menu_home}
                     >
-                        <TouchableOpacity
-                            onPress={() => Controller.goToScreen({ router: 'DANH_MUC' })}
-                        >
-                            <View style={{ justifyContent: 'center', alignItems: 'center' }}>
-                                <Image source={require('../images/appIcon/home.png')} />
-                                <Text style={{ fontWeight: 'bold' }}>Danh mục</Text>
-                            </View>
-                        </TouchableOpacity>
-                        <TouchableOpacity>
-                            <View style={{ justifyContent: 'center', alignItems: 'center' }}>
-                                <Image source={require('../images/appIcon/home.png')} />
-                                <Text style={{ fontWeight: 'bold' }}>Khuyến mãi</Text>
-                            </View>
-                        </TouchableOpacity>
-                        <TouchableOpacity>
-                            <View style={{ justifyContent: 'center', alignItems: 'center' }}>
-                                <Image source={require('../images/appIcon/home.png')} />
-                                <Text style={{ fontWeight: 'bold' }}>Bán chạy</Text>
-                            </View>
-                        </TouchableOpacity>
-                        <TouchableOpacity>
-                            <View style={{ justifyContent: 'center', alignItems: 'center' }}>
-                                <Image source={require('../images/appIcon/home.png')} />
-                                <Text style={{ fontWeight: 'bold' }}>Sản phẩm mới</Text>
-                            </View>
-                        </TouchableOpacity>
+                        <ButtonHome  onPress={() => Controller.goToScreen({ router: 'DANH_MUC' })} style={{backgroundColor: 'red', borderRadius: 40, padding: 6}} img={require('../images/appIcon/ic_menu.png')} title='Khuyễn Mãi' />
+                        <ButtonHome style={{backgroundColor: '#a62bd5', borderRadius: 40, padding: 6}} img={require('../images/appIcon/sales.png')} title='Khuyễn Mãi' />
+                        <ButtonHome style={{backgroundColor: 'gray', borderRadius: 40, padding: 6}} img={require('../images/appIcon/ban_chay.png')} title='Sản phẩm mới' />
+                        <ButtonHome style={{backgroundColor: 'green', borderRadius: 40, padding: 6}} img={require('../images/appIcon/new.png')} title='Sản phẩm mới' />
                     </View>
                     <View style={{ marginTop: 3, backgroundColor: 'white', justifyContent: 'center' }}>
                         <Collection title='Sản phẩm bán chạy' />

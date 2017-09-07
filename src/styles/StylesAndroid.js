@@ -99,6 +99,10 @@ export const style_icon = StyleSheet.create({
     s_icon_tab: {
         width: 26,
         height: 26,
+    },
+    s_icon_menu: {
+        width: 30,
+        height: 30
     }
 });
 export const style_image = StyleSheet.create({
