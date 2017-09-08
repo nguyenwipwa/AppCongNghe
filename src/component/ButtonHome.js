@@ -18,6 +18,6 @@ export default class ButtonHome extends Component {
                     <Text style={{ fontWeight: 'bold' }}>{this.props.title}</Text>
                 </View>
             </TouchableOpacity>
-        )
+        );
     }
 }
