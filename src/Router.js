@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Dimensions, Text, StyleSheet } from 'react-native';
+import { Dimensions, Text, StyleSheet, Easing, Animated } from 'react-native';
 import { DrawerNavigator, StackNavigator, addNavigationHelpers } from 'react-navigation';
 import Home from './screens/Home';
 import Menu from './screens/Menu';
@@ -73,17 +73,45 @@ export const Home_Screens = StackNavigator({
         }),
     }
 }, {
-        mode: 'modal',
-    });
+    // headerMode: 'none',
+    // mode: 'modal',
+    navigationOptions: {
+        gesturesEnabled: false,
+    },
+    transitionConfig: () => ({
+        transitionSpec: {
+            duration: 300,
+            // easing: Easing.out(Easing.poly(4)),
+            // timing: Animated.timing,
+        },
+        screenInterpolator: sceneProps => {
+            const { layout, position, scene } = sceneProps;
+            const { index } = scene;
+
+            const height = layout.initHeight;
+            const translateY = position.interpolate({
+                inputRange: [index - 1, index, index + 1],
+                outputRange: [height, 0, 0],
+            });
+
+            const opacity = position.interpolate({
+                inputRange: [index - 1, index - 0.99, index],
+                outputRange: [0, 1, 1],
+            });
+
+            return { opacity, transform: [{ translateY }] };
+        },
+    }),
+});
 export const SliderMenu = DrawerNavigator({
     Menu: {
         screen: Home_Screens,
     }
 }, {
-        drawerWidth: width * 0.8,
-        drawerPosition: 'left',
-        contentComponent: props => <Menu {...props}></Menu>
-    });
+    drawerWidth: width * 0.8,
+    drawerPosition: 'left',
+    contentComponent: props => <Menu {...props}></Menu>
+});
 const AppWithNavigationState = ({ dispatch, nav }) => (
     <SliderMenu navigation1={addNavigationHelpers({ dispatch, state: nav })} />
 );
