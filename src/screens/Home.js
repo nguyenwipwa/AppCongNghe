@@ -52,9 +52,9 @@ class Home extends Component {
                     <View
                         style={s_menu_home}
                     >
-                        <ButtonHome  onPress={() => Controller.goToScreen({ router: 'DANH_MUC' })} style={{backgroundColor: 'red', borderRadius: 40, padding: 6}} img={require('../images/appIcon/ic_menu.png')} title='Khuyễn Mãi' />
+                        <ButtonHome  onPress={() => Controller.goToScreen({ router: 'DANH_MUC' })} style={{backgroundColor: 'red', borderRadius: 40, padding: 6}} img={require('../images/appIcon/ic_menu.png')} title='Danh Mục' />
                         <ButtonHome style={{backgroundColor: '#a62bd5', borderRadius: 40, padding: 6}} img={require('../images/appIcon/sales.png')} title='Khuyễn Mãi' />
-                        <ButtonHome style={{backgroundColor: 'gray', borderRadius: 40, padding: 6}} img={require('../images/appIcon/ban_chay.png')} title='Sản phẩm mới' />
+                        <ButtonHome style={{backgroundColor: 'gray', borderRadius: 40, padding: 6}} img={require('../images/appIcon/ban_chay.png')} title='Bán chạy' />
                         <ButtonHome style={{backgroundColor: 'green', borderRadius: 40, padding: 6}} img={require('../images/appIcon/new.png')} title='Sản phẩm mới' />
                     </View>
                     <View style={{ marginTop: 3, backgroundColor: 'white', justifyContent: 'center' }}>

@@ -85,13 +85,14 @@ export const styleContact = StyleSheet.create({
 export const style_home = StyleSheet.create({
     s_menu_home: {
         width: '100%',
-        height: 80,
+        height: 90,
         backgroundColor: 'white',
         flexDirection: 'row',
         justifyContent: 'space-between',
         padding: 6,
         borderBottomWidth: 2,
-        borderColor: '#dddddd'
+        borderColor: '#dddddd',
+        alignItems: 'center'
     },
 
 });
